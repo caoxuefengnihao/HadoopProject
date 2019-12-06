@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--【需求】在控制台中操作：
+
+1. 使用html()方法，text（）方法获取div中的内容；--innerHTML InnerText
+2. 使用html（）方法，text（）方法给div中设置内容；
+3. 使用val（）方法获取input中的值； -- value
+4. 使用val（）方法给input文本框中设置值；
+-->
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        $(function () {
+            alert($("#mydiv").html())
+            alert($("#mydiv").text())
+            $("#mydiv").html("<font color='red'>我是font</font>")
+            /*$("#mydiv").text("jjjjj")*/
+            console.log($("#myinput").val())
+            $("#myinput").val("kkkkkkkkk")
+        })
+
+
+    </script>
+</head>
+<body>
+<input id="myinput" type="text" name="username" value="张三" /><br />
+<div id="mydiv">
+    <p>
+        <a href="#">标题标签</a>
+    </p>
+</div>
+</body>
+</html>

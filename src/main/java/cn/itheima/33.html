@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--//点击btn1，在控制台打印id为username的标签对象
+    //点击btn2，在控制台打印name为hobby的标签对象
+    //点击btn3，在控制台打印标签名为input的标签对象
+    //点击btn4，在控制台打印class属性值为form-item的标签对象
+-->
+    <script>
+        window.onload =function (){
+            document.getElementById("btn1").onclick=function (ev) {
+               var v =  document.getElementById("username")
+                console.log(v)
+            }
+            document.getElementById("btn2").onclick=function (ev) {
+                var l =  document.getElementsByName("hobby")
+                console.log(l[0])
+            }
+            document.getElementById("btn3").onclick=function (ev) {
+                var k =  document.getElementsByTagName("input")
+                for (var i = 0; i < k.length; i++) {
+                    console.log(k[i])
+
+                }
+
+            }
+            document.getElementById("btn4").onclick=function (ev) {
+                var h =  document.getElementsByClassName("form-item")
+                for (var i = 0; i < h.length; i++) {
+                    console.log(h[i])
+
+                }
+
+            }
+
+
+            document.getElementById("btn5").onclick=function (ev) {
+                var h =  document.getElementById("username1")
+               alert(h.value)
+
+            }
+            document.getElementById("btn6").onclick=function (ev) {
+                var h =  document.getElementById("username1")
+                h.value = "黑马程序员"
+                alert(h.value)
+
+            }
+            document.getElementById("btn7").onclick=function (ev) {
+                alert(document.getElementById("myDiv").innerText)
+
+            }
+            document.getElementById("btn8").onclick=function (ev) {
+                alert(document.getElementById("heimaSpan").innerText)
+
+            }
+        }
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+<h2>document对象获取页面标签</h2>
+<button id="btn1">点击btn1，在控制台打印id为username的标签对象</button>
+<button id="btn2">点击btn2，在控制台打印name为hobby的标签对象</button>
+<button id="btn3">点击btn3，在控制台打印标签名为input的标签对象</button>
+<button id="btn4">点击btn4，在控制台打印class属性值为form-item的标签对象</button>
+<hr />
+<form action="#" method="get" id="registForm">
+    用户名:<input  type="text" name="username" id="username" class="form-item"><br />
+    密码:<input type="password" name="password" id="password"  class="form-item"><br />
+    性别： <input type="radio" name="sex" value="男"> 男
+    <input type="radio" name="sex" value="女" />女<br />
+    爱好：<input type="checkbox" name="hobby" value="sj"/>睡觉
+    <input type="checkbox" name="hobby" value="bc"/>编程
+    <input type="checkbox" name="hobby" value="cj"/>吃鸡<br />
+    城市：<select name="city" id="city">
+    <option value="bj">北京</option>
+    <option value="sh">上海</option>
+    <option value="gz">广州</option>
+    <option value="sz">深圳</option>
+</select><br />
+    <input type="submit" value="注册" />
+</form>
+
+<hr />
+
+<h2>dom操作标签的value和标签体</h2>
+<hr />
+<!--
+    操作按钮：
+-->
+<h2>操作按钮</h2>
+<h3>1、value值操作</h3>
+<button id="btn5">点击btn1，使用alert弹出input标签的value值</button>
+<button id="btn6">点击btn2，给input标签的value值设置为："黑马程序员"</button>
+<hr />
+用户名：<input type="text"  id="username1"/>
+
+<h2>dom操作标签的value和标签体</h2>
+<hr />
+
+<h3>2、标签体操作</h3>
+<h4>2.1 、innerText</h4>
+<button id="btn7">点击btn3，使用alert弹出id="myDiv"的innerText</button>
+<button id="btn8">点击btn4，设置id="heimaSpan"的span的innerText值：&lt;font color="red"&gt;聪明的人，都很低调&lt;font&gt;</button>
+
+<h4>2.2 、innerHTML</h4>
+<button id="btn9">点击btn5，使用alert弹出id="myDiv"的innerHTML</button>
+<button id="btn10">点击btn6，设置id="heimaSpan"的span的innerHTML值：&lt;font color="red"&gt;聪明的人，都很低调&lt;font&gt;</button>
+
+<hr />
+用户名：<input type="text" />
+<div id="myDiv">传智<span id="mySpan">播客</span></div>
+</body>
+</html>

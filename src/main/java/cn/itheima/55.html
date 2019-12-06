@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+1. 给表单添加提交事件；
+2. 对用户名和密码进行非空校验；
+3. 校验不通过：在对应输入框后面显示错误提示信息；
+4. 校验通过：在对应的输入框后面显示"√"；
+5. 所有校验均通过后表单成功提交；
+-->
+    <script>
+        window.onload = function (ev) {
+            document.getElementById("registForm").onsubmit=function (ev2) {
+                var flag = true
+                var username = document.getElementById("username").value
+                if (username){
+                }
+                else{
+                    flag = false
+                }
+
+                var password = document.getElementById("password").value
+                if (password){
+                }
+                else{
+                    flag = false
+                }
+                return flag
+            }
+            document.getElementById("username").onblur =function (ev2) {
+                if (document.getElementById("username").value){
+                    document.getElementById("username_msg").innerHTML = "<font color='green'>√</font>"
+                }else{
+                    document.getElementById("username_msg").innerHTML = "<font color='red'>请输入用户名</font>"
+                }
+            }
+            document.getElementById("password").onblur =function (ev2) {
+                if (document.getElementById("password").value){
+                    document.getElementById("password_msg").innerHTML = "<font color='green'>√</font>"
+                }else{
+                    document.getElementById("password_msg").innerHTML = "<font color='red'>请输入密码</font>"
+                }
+            }
+        }
+    </script>
+    <!--
+    【案例】动态改变字体颜色
+
+1. 获取素材中div的class属性值；
+2. 给div的id值设置成"newDiv"并添加一个新的属性“style”值为"color:red"；
+3. 移除div的style属性；
+-->
+    <script>
+        window.onload = function (ev) {
+            document.getElementById("btn1").onclick =function (ev2) {
+                alert(document.getElementById("myDiv").getAttribute("class"))
+            }
+            document.getElementById("btn2").onclick =function (ev2) {
+                alert(document.getElementById("mySpan").setAttribute("style","color:red"))
+            }
+            document.getElementById("btn3").onclick =function (ev2) {
+                alert(document.getElementById("mySpan").removeAttribute("style"))
+            }
+        }
+    </script>
+
+
+
+    <!--
+【需求】
+- 完成表格隔行变色；
+- 完成全选与取消全选功能；
+- 完成反选功能；
+- 删除功能
+-->
+</head>
+<body>
+<h2 align="center">注册表单校验</h2>
+<form action="#" method="get" id="registForm">
+    <table  height="60%"  align="center" bgcolor="#ffffff">
+        <tr>
+            <td colspan="3">会员注册USER REGISTER</td>
+        </tr>
+        <tr>
+            <td width="20%">用户名:</td>
+            <td width="40%"><input type="text" name="username" id="username"></td>
+            <td width="40%"><span id="username_msg"></span></td>
+        </tr>
+        <tr>
+            <td>密码:</td>
+            <td><input type="password" name="password" id="password"></td>
+            <td><span id="password_msg"></span></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="注册" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+
+<h2>dom属性操作</h2>
+<hr />
+<h3>操作按钮</h3>
+<button id="btn1">点击btn1，获取id="myDiv"标签的class属性值</button>
+<button id="btn2">点击btn2，为id="mySpan"的标签添加一个新的属性"style"值为"color:red"</button>
+<button id="btn3">点击btn3，移除id="mySpan"标签的style属性</button>
+<div id="myDiv" class="myDiv">
+    传智<span id="mySpan">播客</span>
+</div>
+
+
+
+<h2>表格隔行变色，全选，反选</h2>
+<hr />
+<table border="1px" width="600px" height="200px" cellspacing="0px" style="margin-left: 26%;margin-top: 3%;">
+    <tr>
+        <td colspan="5"><button id="btn">反选</button></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" id="checkAll" /></td>
+        <th>分类ID</th>
+        <th>分类名</th>
+        <th>描述</th>
+    </tr>
+    <tr>
+        <td><input type="checkbox"  class="myCheckBox"/></td>
+        <td>1</td>
+        <td>手机数码</td>
+        <td>手机</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="myCheckBox"/></td>
+        <td>2</td>
+        <td>电脑办公</td>
+        <td>电脑</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="myCheckBox"/></td>
+        <td>3</td>
+        <td>鞋靴箱包</td>
+        <td>鞋靴</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="myCheckBox"/></td>
+        <td>4</td>
+        <td>家居饰品</td>
+        <td>家具</td>
+    </tr>
+</table>
+<script>
+    for (var i = 0; i <document.getElementsByTagName("tr").length; i++) {
+        if (i%2==0){
+            document.getElementsByTagName("tr")[i].setAttribute("style","background-color:red")
+        }else
+        {
+            document.getElementsByTagName("tr")[i].setAttribute("style","background-color:green")
+        }
+    }
+    document.getElementById("btn").onclick= function (ev) {
+
+
+            for (var i = 0; i < document.getElementsByClassName("myCheckBox").length; i++) {
+                document.getElementsByClassName("myCheckBox")[i].checked=!document.getElementsByClassName("myCheckBox")[i]
+            }
+        }
+
+</script>
+</body>
+</html>

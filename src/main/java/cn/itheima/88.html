@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--【案例】attr()和prop()属性操作
+
+ 【需求】
+
+1. 分别使用attr()方法和prop()方法获取id属性值为bj的li的name属性值；
+2. 分别使用attr()方法和prop()方法获取li的自定义属性xxx；
+3. 分别使用attr()方法和prop()方法给checkbox设置name属性；
+4. 分别使用attr()和prop()方法获取checkbox的checked属性；
+-->
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        //分别使用attr()方法和prop()方法获取li的name属性值
+        $(function () {
+
+            alert($("#bj").attr("name"))
+        })
+
+        //分别使用attr()方法和prop()方法给checkbox设置name属性
+        //分别使用attr()和prop()方法获取checkbox的checked属性
+    </script>
+</head>
+<body>
+<ul>
+    <li id="bj" name="beijing">北京</li>
+    <li id="sh" name="shanghai">上海</li>
+    <li id="gz" name="guangzhou">北京</li>
+    <li id="sz" name="shengzhen">深圳</li>
+</ul>
+<input type="checkbox" value="滑雪" id="hobby" checked>滑雪
+
+
+</body>
+</html>

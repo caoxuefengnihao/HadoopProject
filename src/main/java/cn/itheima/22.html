@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--1.
+    练习: 编写程序，实现使用prompt输入两个数和运算符号，并计算两个数的操作结果。
+	var s = prompt("提示信息","默认值");
+	如果第2个参数不写，在IE浏览器中会出现undefined
+	作用：让用户输入一个值，接收以后，赋值给s，返回类型是string类型
+	是window对象的一个方法
+		window.prompt("提示信息","默认值")
+		在浏览器中默认window对象可以省略
+	window.alert();
+		作用：弹出对话框，输出信息
+
+2.  得到系统当前的时间，如果现在的小时小于12，在网页上加粗显示
+    Good morning
+	如果在小时在12和18之间，显示
+	Good Afternoon
+	否则显示
+	Good Day
+
+-->
+
+<input type="text"  id="jj" name="name" >
+<input type="text"  id="j2" name="name" >
+<input type="text"  id="j3" name="name" >
+<script>
+    var s =prompt("请输入数字")
+    var ip = document.getElementById("jj")
+    ip.value= s;
+
+
+    var s1 =prompt("请输入数字")
+    var ip1 = document.getElementById("j2")
+    ip1.value= s1;
+
+
+    var s2 =prompt("请输入换算符号")
+    var ip2 = document.getElementById("j3")
+    ip2.value= s2;
+         alert()
+
+
+</script>
+
+</body>
+</html>

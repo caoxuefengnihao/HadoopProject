@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="script" href="demo.js">
+</head>
+<body>
+<a ev>
+    ixix
+</a>
+<script>
+    function demo() {
+        confirm("xixi")
+    }
+var demo = function (a,b) {
+   return a+b;
+}
+var num =demo(10,20)
+   /* alert(num)*/
+</script>
+
+<!--<button id="jjj" onclick="demo()">jjjj</button>-->
+<form  id="jjj">
+    yonghuming<input id ="jj" name="name" />
+    mima<input id="mi" name="passwd" >
+    tijiao<input type="submit" value="hhhh" />
+</form>
+<script>
+/*    var t= document.getElementById("jjj");
+       t.onsubmit =function (){
+           falg = true;
+           var v= document.getElementById("jj");
+               if(v.value){
+
+               }else {
+                   alert("请输入文字");
+                   falg = false;
+           }
+           var s= document.getElementById("mi");
+
+               if(s.value){
+               }else {
+                   alert("请输入文字");
+                   falg = false;
+           }
+           return falg;
+    }*/
+var t= document.getElementById("jjj");
+t.onsubmit =function (){
+    falg = true;
+    var v= document.getElementById("jj");
+
+    if(v.value){
+
+    }else {
+        alert("请输入文字");
+        falg = false;
+    }
+    var s= document.getElementById("mi");
+    if(s.value){
+    }else {
+        alert("请输入文字");
+        falg = false;
+    }
+    return falg;
+}
+
+</script>
+<!--lun bo tu -->
+
+
+<div><img id="dd" src="" alt=""></div>
+<script>
+
+
+    var e = document.getElementById("dd");
+    setInterval(function () {
+        var i =1
+        while(true){
+            e.src =""+(i%3+1)+""
+            i++
+        }
+
+    },3000)
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
