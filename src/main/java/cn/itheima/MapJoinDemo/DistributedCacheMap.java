@@ -35,6 +35,7 @@ public class DistributedCacheMap {
     public static void main(String[] args) throws Exception {
         //通过Job这个类来封装本次mr的相关信息  不过这个是一个静态的类
         Configuration configuration = new Configuration();
+        configuration.set("",args[0]);
         Job job = Job.getInstance(configuration);
         //指定本次mrjob jar包的运行主类
         job.setJarByClass(cn.itheima.MapJoinDemo.DistributedCacheMap.class);
@@ -72,6 +73,7 @@ class DistributedMap extends Mapper<LongWritable,Text,Text,NullWritable>{
          */
         URI[] cacheFiles = context.getCacheFiles();
         String string = cacheFiles[0].getPath().toString();
+        context.getConfiguration().get("");
         /**
          * 运用io流的相关代码 通过路径读取我们的缓存文件
          */
