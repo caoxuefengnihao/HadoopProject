@@ -11,6 +11,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 /**
  * 这个类就是mr程序运行时的主类，本类中组装了一些程序运行时
@@ -35,9 +36,9 @@ public class WordCountApp {
         // 指定本次mr 最终输出的k v 类型
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
-        //指定输出文件的压缩格式
+        /*//指定输出文件的压缩格式
         FileOutputFormat.setCompressOutput(job,true);
-        FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
+        FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);*/
         //指定本次mr 输入路径 和 最终输出结果存放在什么位置
         FileInputFormat.setInputPaths(job,"file:///C:\\Users\\101-01-0192\\Desktop\\000\\w*.txt,file:///C:\\Users\\101-01-0192\\Desktop\\000\\111\\*");
         //FileInputFormat.setInputPaths(job,"file:///C:\\Users\\101-01-0192\\Desktop\\000\\wc1.txt");
@@ -94,7 +95,7 @@ class wordcountmapper extends Mapper<LongWritable,Text,Text,IntWritable>{
 /**
  * 这里就是reduce阶段输入的数据可以类型
  */
-class wordcountreducer extends Reducer<Text,IntWritable,Text,IntWritable>{
+class wordcountreducer extends Reducer<Text,IntWritable,Text,Text>{
     /**
      * 这里是reduce阶段具体的业务类处理方法
      * @param key
@@ -112,13 +113,19 @@ class wordcountreducer extends Reducer<Text,IntWritable,Text,IntWritable>{
     protected void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
         System.out.println(key.toString());
         Iterator<IntWritable> iterator = values.iterator();
-        int sum = 0;
+        ArrayList<String> strings = new ArrayList<>();
+        while (iterator.hasNext()){
+            IntWritable intWritable = iterator.next();
+            strings.add(intWritable.toString());
+        }
+       /* int sum = 0;
         System.out.println("reduce");
         while (iterator.hasNext()){
 
             IntWritable intWritable = iterator.next();
             sum = sum + intWritable.get();
         }
-        context.write(new Text(key),new IntWritable(sum));
+        context.write(new Text(key),new IntWritable(sum));*/
+       context.write(new Text(key),new Text(strings.toString()));
     }
 }
